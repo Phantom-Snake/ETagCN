@@ -261,6 +261,7 @@ sub get_tags_from_EH ( $ua, $gID, $gToken, $jpntitle, $additionaltags, $db_path 
         $ehtitle = @$data[0]->{"title"};
     }
     my $ehcat = lc @$data[0]->{"category"};
+    $ehcat =~ s/\s+//g;
 
     push( @tags, "reclass:$ehcat" );
     if ($additionaltags) {
